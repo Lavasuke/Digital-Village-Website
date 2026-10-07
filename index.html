@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Village Portal | डिजिटल ग्राम पोर्टल</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/3f44ede1f_generated_image.png');background-size:cover;background-position:center;background-repeat:no-repeat}
+.hero::after{content:"";position:absolute;inset:-15px;background-image:url('https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/3f44ede1f_generated_image.png');background-size:cover;background-position:center;background-repeat:no-repeat;filter:blur(8px);-webkit-mask-image:linear-gradient(to right,#000 0%,transparent 65%);mask-image:linear-gradient(to right,#000 0%,transparent 65%)}
+.hero-content{position:relative;z-index:1}
+.emergency-image{width:100%;height:150px;object-fit:cover;display:block;border-radius:14px;margin-bottom:1rem}
+
+.service-image{width:100%;height:180px;object-fit:cover;display:block;border-radius:14px;margin-bottom:1rem}
+@media (max-width:600px){.service-image{height:150px}}
+
+.explore-grid img{width:100%;height:220px;object-fit:cover;display:block}
+@media (max-width:600px){}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span>🏡</span>
+        <div>
+            <h1>Digital Village</h1>
+            <p>डिजिटल ग्राम</p>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home">Home | होम</a>
+        <a href="#services">Services | सेवाएँ</a>
+        <a href="#schemes">Schemes | योजनाएँ</a>
+        <a href="#directory">Directory | निर्देशिका</a>
+        <a href="#events">Events | कार्यक्रम</a>
+        <a href="#emergency">Emergency | आपातकाल</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <p class="welcome">Welcome to our village portal | हमारे गाँव के पोर्टल में आपका स्वागत है</p>
+
+        <h2>
+            One Portal | एक पोर्टल.<br>
+            <span>Many Village Services | कई ग्रामीण सेवाएँ.</span>
+        </h2>
+
+        <p>
+            A simple digital platform connecting villagers with essential
+            services, government schemes, education, healthcare and local information.
+        </p>
+
+        <p class="hindi">
+            एक सरल डिजिटल प्लेटफ़ॉर्म जो ग्रामीणों को आवश्यक सेवाओं,
+            सरकारी योजनाओं, शिक्षा, स्वास्थ्य और स्थानीय जानकारी से जोड़ता है।
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#services" class="btn">Explore Services | सेवाएँ देखें</a>
+            <a href="#emergency" class="btn secondary">Emergency Help | आपातकालीन सहायता</a>
+        </div>
+    </div>
+</section>
+
+<section class="search-section">
+    <h2>Search Village Services | गाँव की सेवाएँ खोजें</h2>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search services, schemes, education... | सेवाएँ, योजनाएँ, शिक्षा खोजें..."
+    >
+
+    <div id="searchResults"></div>
+</section>
+
+<section id="services" class="section">
+    <div class="section-title">
+        <h2>Village Services <span>| गाँव की सेवाएँ</span></h2>
+        <p>Important services available for villagers | ग्रामवासियों के लिए उपलब्ध महत्वपूर्ण सेवाएँ।</p>
+    </div>
+
+    <div class="service-grid">
+
+        <article class="service-card">
+            <img class="service-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/6ea9ff488_generated_image.png" alt="Healthcare facility" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27500%27%3E%3Crect width=%27800%27 height=%27500%27 fill=%27%2316a34a%27/%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Healthcare <span>| स्वास्थ्य</span></h3>
+            <p>Information about nearby healthcare facilities and basic health services | निकट की स्वास्थ्य सुविधाओं और बुनियादी स्वास्थ्य सेवाओं की जानकारी।</p>
+            <button onclick="openService('health')">View Details | विवरण देखें</button>
+        </article>
+
+        <article class="service-card">
+            <img class="service-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/46323003c_generated_image.png" alt="Education and learning" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27500%27%3E%3Crect width=%27800%27 height=%27500%27 fill=%27%2316a34a%27/%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Education <span>| शिक्षा</span></h3>
+            <p>Find information about schools, scholarships and learning resources | स्कूलों, छात्रवृत्तियों और अध्ययन सामग्री की जानकारी पाएँ।</p>
+            <button onclick="openService('education')">View Details | विवरण देखें</button>
+        </article>
+
+        <article class="service-card">
+            <img class="service-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/af3d67e52_generated_image.png" data-remote="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80" alt="Agriculture and farming" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27500%27%3E%3Crect width=%27800%27 height=%27500%27 fill=%27%2316a34a%27/%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Agriculture <span>| कृषि</span></h3>
+            <p>Useful information for farmers, crops and government support | किसानों, फसलों और सरकारी सहायता के लिए उपयोगी जानकारी।</p>
+            <button onclick="openService('agriculture')">View Details | विवरण देखें</button>
+        </article>
+
+        <article class="service-card">
+            <img class="service-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/4f06ef172_generated_image.png" alt="Water and sanitation" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27500%27%3E%3Crect width=%27800%27 height=%27500%27 fill=%27%2316a34a%27/%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Water & Sanitation <span>| जल एवं स्वच्छता</span></h3>
+            <p>Information about drinking water, sanitation and cleanliness | पीने के पानी, स्वच्छता और सफ़ाई की जानकारी।</p>
+            <button onclick="openService('water')">View Details | विवरण देखें</button>
+        </article>
+
+        <article class="service-card">
+            <img class="service-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/ad3209677_generated_image.png" alt="Public services and government office" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27500%27%3E%3Crect width=%27800%27 height=%27500%27 fill=%27%2316a34a%27/%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Public Services <span>| सार्वजनिक सेवाएँ</span></h3>
+            <p>Access information about important government and public services | महत्वपूर्ण सरकारी और सार्वजनिक सेवाओं की जानकारी पाएँ।</p>
+            <button onclick="openService('public')">View Details | विवरण देखें</button>
+        </article>
+
+        <article class="service-card">
+            <img class="service-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/3eb4f53da_generated_image.png" alt="Local businesses and market" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27800%27 height=%27500%27%3E%3Crect width=%27800%27 height=%27500%27 fill=%27%2316a34a%27/%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Local Businesses <span>| स्थानीय व्यवसाय</span></h3>
+            <p>Discover shops, services and businesses in the village | गाँव की दुकानें, सेवाएँ और व्यवसाय खोजें।</p>
+            <button onclick="openService('business')">View Details | विवरण देखें</button>
+        </article>
+
+    </div>
+</section>
+
+<section id="schemes" class="section schemes-section">
+    <div class="section-title">
+        <h2>Government Schemes <span>| सरकारी योजनाएँ</span></h2>
+        <p>Useful government schemes for rural citizens | ग्रामीण नागरिकों के लिए उपयोगी सरकारी योजनाएँ।</p>
+    </div>
+
+    <div class="scheme-grid">
+
+        <article class="scheme-card">
+            <div class="scheme-icon">🌾</div>
+            <h3>PM-KISAN | पीएम-किसान</h3>
+            <p>Financial support scheme for eligible farmer families | पात्र किसान परिवारों के लिए वित्तीय सहायता योजना।</p>
+            <button onclick="openScheme('pmkisan')">Learn More | और जानें</button>
+        </article>
+
+        <article class="scheme-card">
+            <div class="scheme-icon">🏠</div>
+            <h3>PMAY-G | प्रधानमंत्री आवास योजना</h3>
+            <p>Support for eligible rural families to build houses | पात्र ग्रामीण परिवारों को घर बनाने के लिए सहायता।</p>
+            <button onclick="openScheme('pmay')">Learn More | और जानें</button>
+        </article>
+
+        <article class="scheme-card">
+            <div class="scheme-icon">🚰</div>
+            <h3>Jal Jeevan Mission | जल जीवन मिशन</h3>
+            <p>Improving access to safe drinking water in rural households | ग्रामीण घरों में सुरक्षित पीने के पानी की उपलब्धता में सुधार।</p>
+            <button onclick="openScheme('jal')">Learn More | और जानें</button>
+        </article>
+
+        <article class="scheme-card">
+            <div class="scheme-icon">🎓</div>
+            <h3>National Scholarship Portal | राष्ट्रीय छात्रवृत्ति पोर्टल</h3>
+            <p>A digital platform for scholarship applications and information | छात्रवृत्ति आवेदन और जानकारी के लिए एक डिजिटल मंच।</p>
+            <button onclick="openScheme('scholarship')">Learn More | और जानें</button>
+        </article>
+
+    </div>
+</section>
+
+<section id="directory" class="section">
+    <div class="section-title">
+        <h2>Village Directory <span>| ग्राम निर्देशिका</span></h2>
+        <p>Find important places and facilities | महत्वपूर्ण स्थानों और सुविधाओं की जानकारी पाएँ।</p>
+    </div>
+
+    <div class="directory-grid">
+
+        <div class="directory-item">
+            <span>🏥</span>
+            <div>
+                <h3>Primary Health Centre | प्राथमिक स्वास्थ्य केंद्र</h3>
+                <p>Healthcare facility | स्वास्थ्य सुविधा</p>
+            </div>
+        </div>
+
+        <div class="directory-item">
+            <span>🏫</span>
+            <div>
+                <h3>Government School | सरकारी विद्यालय</h3>
+                <p>Education facility | शिक्षा सुविधा</p>
+            </div>
+        </div>
+
+        <div class="directory-item">
+            <span>🏤</span>
+            <div>
+                <h3>Post Office | डाकघर</h3>
+                <p>Postal services | डाक सेवाएँ</p>
+            </div>
+        </div>
+
+        <div class="directory-item">
+            <span>🏦</span>
+            <div>
+                <h3>Banking Services | बैंकिंग सेवाएँ</h3>
+                <p>Financial services | वित्तीय सेवाएँ</p>
+            </div>
+        </div>
+
+        <div class="directory-item">
+            <span>🚓</span>
+            <div>
+                <h3>Police Station | पुलिस स्टेशन</h3>
+                <p>Public safety | सार्वजनिक सुरक्षा</p>
+            </div>
+        </div>
+
+        <div class="directory-item">
+            <span>🛒</span>
+            <div>
+                <h3>Local Market | स्थानीय बाज़ार</h3>
+                <p>Shopping &amp; essentials | खरीदारी और आवश्यक वस्तुएँ</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section map-section">
+    <div class="section-title">
+        <h2>Village Map <span>| गाँव का नक्शा</span></h2>
+        <p>Click on a location to see information | किसी स्थान पर क्लिक करके जानकारी देखें।</p>
+    </div>
+
+    <div class="village-map">
+        <div class="road road-one"></div>
+        <div class="road road-two"></div>
+        <div class="road road-three"></div>
+
+        <button class="map-pin pin-school" onclick="showMapInfo('Government School')">🏫</button>
+        <button class="map-pin pin-hospital" onclick="showMapInfo('Primary Health Centre')">🏥</button>
+        <button class="map-pin pin-market" onclick="showMapInfo('Village Market')">🛒</button>
+        <button class="map-pin pin-temple" onclick="showMapInfo('Community Centre')">🏛️</button>
+
+        <div class="map-label school-label">School | विद्यालय</div>
+        <div class="map-label hospital-label">Health Centre | स्वास्थ्य केंद्र</div>
+        <div class="map-label market-label">Market | बाज़ार</div>
+        <div class="map-label temple-label">Community Centre | सामुदायिक केंद्र</div>
+    </div>
+
+    <div id="mapInfo" class="map-info">
+        Click a map location to view details | किसी स्थान पर क्लिक करके विवरण देखें।
+    </div>
+</section>
+
+<section id="events" class="section events-section">
+    <div class="section-title">
+        <h2>Community Events <span>| सामुदायिक कार्यक्रम</span></h2>
+        <p>Upcoming activities and events in the village | गाँव में आगामी गतिविधियाँ और कार्यक्रम।</p>
+    </div>
+
+    <div class="event-grid">
+
+        <article class="event-card">
+            <div class="event-date">
+                <strong>15</strong>
+                <span>OCT</span>
+            </div>
+            <div>
+                <h3>Village Cleanliness Drive | ग्राम स्वच्छता अभियान</h3>
+                <p>Community cleanliness and awareness activity | सामुदायिक सफ़ाई और जागरूकता गतिविधि।</p>
+                <small>📍 Community Centre | सामुदायिक केंद्र</small>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-date">
+                <strong>20</strong>
+                <span>OCT</span>
+            </div>
+            <div>
+                <h3>Health Awareness Camp | स्वास्थ्य जागरूकता शिविर</h3>
+                <p>Basic health awareness and consultation camp | बुनियादी स्वास्थ्य जागरूकता और परामर्श शिविर।</p>
+                <small>📍 Primary Health Centre | प्राथमिक स्वास्थ्य केंद्र</small>
+            </div>
+        </article>
+
+        <article class="event-card">
+            <div class="event-date">
+                <strong>02</strong>
+                <span>NOV</span>
+            </div>
+            <div>
+                <h3>Farmers' Meeting | किसान बैठक</h3>
+                <p>Discussion about farming, crops and government support | खेती, फसलों और सरकारी सहायता पर चर्चा।</p>
+                <small>📍 Community Hall | सामुदायिक भवन</small>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="section explore">
+    <div class="section-title">
+        <h2>Explore Our Village <span>| हमारे गाँव को जानें</span></h2>
+        <p>Discover the nature, culture and food of our village | हमारे गाँव की प्रकृति, संस्कृति और भोजन को जानें।</p>
+    </div>
+
+    <div class="explore-grid">
+
+        <article>
+            <img src="https://images.unsplash.com/photo-1671769195087-58336aa02943?auto=format&fit=crop&w=800&q=80" data-remote="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=600&q=80" alt="Village nature" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%2316a34a'/%3E%3Ctext x='300' y='210' font-size='34' text-anchor='middle' fill='white' font-family='Arial'%3EDigital Village%3C/text%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Nature | प्रकृति</h3>
+            <p>Greenery and natural beauty | हरियाली और प्राकृतिक सुंदरता।</p>
+        </article>
+
+        <article>
+            <img src="https://images.unsplash.com/photo-1600150806193-cf869bcfee05?auto=format&fit=crop&w=800&q=80" data-remote="https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=600&q=80" alt="Traditional rural Indian culture" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%2316a34a'/%3E%3Ctext x='300' y='210' font-size='34' text-anchor='middle' fill='white' font-family='Arial'%3EDigital Village%3C/text%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Local Culture | स्थानीय संस्कृति</h3>
+            <p>Traditions and festivals | परंपराएँ और त्योहार।</p>
+        </article>
+
+        <article>
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" data-remote="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80" alt="Traditional Indian food" loading="lazy" data-svg="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect width='600' height='400' fill='%2316a34a'/%3E%3Ctext x='300' y='210' font-size='34' text-anchor='middle' fill='white' font-family='Arial'%3EDigital Village%3C/text%3E%3C/svg%3E" onerror="imgFallback(this)">
+            <h3>Local Food | स्थानीय व्यंजन</h3>
+            <p>Traditional dishes and local flavours | पारंपरिक व्यंजन और स्थानीय स्वाद।</p>
+        </article>
+
+    </div>
+</section>
+
+<section id="emergency" class="section emergency-section">
+    <div class="section-title">
+        <h2>Emergency Contacts <span>| आपातकालीन संपर्क</span></h2>
+        <p>Keep important emergency numbers easily accessible | महत्वपूर्ण आपातकालीन नंबर हमेशा सुलभ रखें।</p>
+    </div>
+
+    <div class="emergency-grid">
+
+        <div class="emergency-card">
+            <div class="emergency-icon">🚨</div>
+            <h3>Emergency | आपातकाल</h3>
+            <p>Police, Fire &amp; Medical Emergency | पुलिस, अग्निशमन और चिकित्सा आपातकाल</p>
+            <a href="tel:112">Call 112 | कॉल करें 112</a>
+        </div>
+
+        <div class="emergency-card">
+            <img class="emergency-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/d7b070117_generated_image.png" alt="Police vehicle at village police station">
+            <div class="emergency-icon">🚓</div>
+            <h3>Police | पुलिस</h3>
+            <p>For immediate public safety assistance | तत्काल सार्वजनिक सुरक्षा सहायता के लिए।</p>
+            <a href="tel:112">Call 112 | कॉल करें 112</a>
+        </div>
+
+        <div class="emergency-card">
+            <img class="emergency-image" src="https://media.base44.com/images/public/6ac5e5898b4c3a69b2f3e316/757dc19d0_generated_image.png" alt="Rural hospital with ambulance">
+            <div class="emergency-icon">🏥</div>
+            <h3>Medical Emergency | चिकित्सा आपातकाल</h3>
+            <p>For urgent medical assistance | तत्काल चिकित्सा सहायता के लिए।</p>
+            <a href="tel:112">Call 112 | कॉल करें 112</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section feedback-section">
+    <div class="section-title">
+        <h2>Community Feedback <span>| समुदाय की प्रतिक्रिया</span></h2>
+        <p>Help us improve the Digital Village Portal | डिजिटल ग्राम पोर्टल को बेहतर बनाने में हमारी मदद करें।</p>
+    </div>
+
+    <form id="feedbackForm" class="feedback-form">
+
+        <label for="name">Your Name | आपका नाम</label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name | अपना नाम दर्ज करें"
+            required
+        >
+
+        <label for="feedback">Your Feedback | आपकी प्रतिक्रिया</label>
+
+        <textarea
+            id="feedback"
+            rows="5"
+            placeholder="Tell us how we can improve... | हमें बताएँ कि हम कैसे बेहतर बन सकते हैं..."
+            required
+        ></textarea>
+
+        <button type="submit">Submit Feedback | प्रतिक्रिया भेजें</button>
+
+    </form>
+
+    <p id="feedbackMessage"></p>
+</section>
+
+<footer class="footer">
+
+    <div>
+        <h2>🏡 Digital Village</h2>
+
+        <p>Connecting rural communities with digital services.</p>
+
+        <p>
+            ग्रामीण समुदायों को डिजिटल सेवाओं से जोड़ने की एक पहल।
+        </p>
+    </div>
+
+    <div class="footer-links">
+        <h3>Quick Links | उपयोगी लिंक</h3>
+        <a href="#home">Home | होम</a>
+        <a href="#services">Services | सेवाएँ</a>
+        <a href="#schemes">Schemes | योजनाएँ</a>
+        <a href="#events">Events | कार्यक्रम</a>
+        <a href="#emergency">Emergency | आपातकाल</a>
+    </div>
+
+    <div class="footer-links">
+        <h3>Important | महत्वपूर्ण</h3>
+
+        <a href="https://www.india.gov.in/" target="_blank">
+            India.gov.in
+        </a>
+
+        <a href="https://www.myscheme.gov.in/" target="_blank">
+            MyScheme
+        </a>
+
+        <a href="https://www.digitalindia.gov.in/" target="_blank">
+            Digital India
+        </a>
+    </div>
+
+</footer>
+
+<div class="copyright">
+    © 2026 Digital Village Portal | डिजिटल ग्राम पोर्टल | Made for Web Development Competition | वेब डेवलपमेंट प्रतियोगिता के लिए निर्मित
+</div>
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeModal()">×</button>
+
+        <h2 id="modalTitle">Information | जानकारी</h2>
+
+        <p id="modalText">Information will appear here | जानकारी यहाँ दिखाई देगी।</p>
+
+        <a
+            id="modalLink"
+            href="#"
+            target="_blank"
+            class="modal-link"
+        >
+            Visit Official Website | आधिकारिक वेबसाइट देखें
+        </a>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function imgFallback(i){
+  if(i.dataset.remote && !i.dataset.triedRemote){i.dataset.triedRemote=1;i.src=i.dataset.remote;return;}
+  i.onerror=null;i.src=i.dataset.svg;
+}
+</script>
+</body>
+</html>
